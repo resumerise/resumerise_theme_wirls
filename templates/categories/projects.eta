@@ -6,6 +6,11 @@
 		<% it.resume?.projects.forEach(function(project) { %>
 			<article>
 				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.project, showDelete: true, id: project.id}) %>
+				<% if (project.logo) { %>
+                    <div class="article-logo">
+                        <%~ project.logo %>
+                    </div>
+                <% } %>
 				<div class="article-header">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.title, 
