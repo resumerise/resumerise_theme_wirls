@@ -5,7 +5,7 @@
 		<% } %>
 	</div>
     
-	<div class="article-container grid">
+	<div class="article-container mac grid">
 		<% it.resume?.certifications.forEach(function(certificate) { %>
 			<article>
 				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.certificate, showDelete: true, id: certificate.id}) %>

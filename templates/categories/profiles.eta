@@ -5,7 +5,7 @@
         <% } %>
     </div>
 
-    <div class="article-container profile__container">
+    <div class="article-container mac profile__container">
         <% it.resume.basics.profiles?.forEach(function(profile){ %>
             <article>
                 <%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.profile, showDelete: true, id: profile.id}) %>

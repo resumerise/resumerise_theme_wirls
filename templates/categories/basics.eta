@@ -1,4 +1,5 @@
 <section class="basics section" id='basics'>
+    <div class="bg-div"></div>
     <%~ include('profile-picture', {
         picture: it.resume.basics.picture
     }) %>
@@ -42,9 +43,5 @@
             value: it.resume.basics.summary,
             classes: 'article__description home__description'
         }) %>
-        <div class="circle animate__animated animate__jello"></div>
-        <div class="outer-circle animate__animated animate__wobble"></div>
-        <div class="box"></div>
-        <div class="line"></div>
     </div>
 </section>

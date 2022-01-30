@@ -5,7 +5,7 @@
 		<% } %>
 	</div>
 
-	<div class="article-container">
+	<div class="article-container mac">
 		<% it.resume?.skills.forEach(function(skill) { %>
 			<article>
 				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.skill}) %>

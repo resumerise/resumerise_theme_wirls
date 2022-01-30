@@ -5,7 +5,7 @@
 		<% } %>
 	</div>
     
-	<div class="article-container">
+	<div class="article-container mac">
 		<% it.resume?.interests.forEach(function(interest) { %>
 			<article>
 				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.interest, showDelete: true, id: interest.id}) %>

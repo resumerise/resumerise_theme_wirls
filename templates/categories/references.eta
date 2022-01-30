@@ -5,7 +5,7 @@
 		<% } %>
 	</div>
 	
-	<div class="article-container grid">
+	<div class="article-container mac grid">
 		<% it.resume?.references.forEach(function(reference) { %>
 			<article>
 				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.reference, id: reference.id, showDelete: true}) %>
@@ -27,7 +27,5 @@
 			</article>
 		<% }) %>
 		<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.reference}) %>
-		<div data-aos="fade-right" class="box-v"></div>
-        <div data-aos="fade-right" class="line-v"></div>
 	</div>
 </section>

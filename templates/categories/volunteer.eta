@@ -4,7 +4,7 @@
 			<header class="section__title"><%= it.resume.settings.labels.categoryProperty.volunteer.categoryTitle %></header>
 		<% } %>
 	</div>
-	<div class="article-container grid">
+	<div class="article-container mac grid">
 		<% it.resume?.volunteer.forEach(function(volunteer) { %>
 			<article>
 				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.volunteer, showDelete: true, id: volunteer.id}) %>
@@ -14,19 +14,21 @@
 						value: volunteer.organization,
 						classes: 'article__title'
 					}) %>
-					<%~ include('key-value-item', {
-						label: it.resume.settings?.labels?.categoryProperty?.volunteer?.position, 
-						value: volunteer.position,
-						classes: 'article__subtitle'
-					}) %>
-					<%~ include('date-range', {
-						formatDate: it.formatDate,
-						startDate: volunteer.startDate,
-						endDate: volunteer.endDate,
-						present: volunteer.present,
-						settings: it.resume.settings,
-						classes: 'article__date'
-					}) %>
+					<div class="article-header__wrapper">
+						<%~ include('key-value-item', {
+							label: it.resume.settings?.labels?.categoryProperty?.volunteer?.position, 
+							value: volunteer.position,
+							classes: 'article__subtitle'
+						}) %>
+						<%~ include('date-range', {
+							formatDate: it.formatDate,
+							startDate: volunteer.startDate,
+							endDate: volunteer.endDate,
+							present: volunteer.present,
+							settings: it.resume.settings,
+							classes: 'article__date'
+						}) %>
+					</div>
 					<%~ include('key-url-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.volunteer?.website, 
 						value: volunteer.website,

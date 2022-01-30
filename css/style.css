@@ -6,15 +6,15 @@
     --header-height: 3rem;
 
     /*========== COLORS ==========*/
-    --first-color: hsl(244, 100%, 57%);
-    --first-color-second: hsl(244, 69%, 61%);
-    --first-color-alt: hsl(244, 57%, 53%);
-    --first-color-lighter: hsl(244, 69%, 61%);
+    --first-color: hsl(160, 100%, 57%);
+    --first-color-second: hsl(160, 69%, 61%);
+    --first-color-alt: hsl(160, 57%, 53%);
+    --first-color-lighter: hsl(160, 69%, 61%);
     --first-color-lighter-dark: #292523;
     --title-color: #00020B;
     --text-color: #5C5859;
     --text-color-light: #A29697;
-    --yellow-color: #F9E32B;
+    --bg-color: #10B57D;
     --body-color: #fefcfb;
     --white-color: white;
     --black-color: black;
@@ -24,7 +24,7 @@
     --biggest-font-size: 4rem;
     --bigger-font-size: 3rem;
     --big-font-size: 2rem;
-    --h1-font-size: 1.5rem;
+    --h1-font-size: 1.4rem;
     --h2-font-size: 1.25rem;
     --h3-font-size: 1.125rem;
     --normal-font-size: .938rem;
@@ -59,7 +59,7 @@
         --biggest-font-size: 5rem;
         --bigger-font-size: 4rem;
         --big-font-size: 3rem;
-        --h1-font-size: 2.25rem;
+        --h1-font-size: 2.15rem;
         --h2-font-size: 1.5rem;
         --h3-font-size: 1.25rem;
         --normal-font-size: 1rem;
@@ -90,12 +90,12 @@ body {
 }
 
 ::-moz-selection {
-    background: hsl(244, 100%, 77%);
+    background: hsl(160, 100%, 47%);
     color: white;
 }
 
 ::selection {
-    background: hsl(244, 100%, 77%);
+    background: hsl(160, 100%, 47%);
     color: white;
 }
 
@@ -124,7 +124,7 @@ li {
 }
 
 li::marker {
-    color: hsl(244, 100%, 70%);
+    color: hsl(160, 100%, 70%);
 }
 
 a {
@@ -137,6 +137,17 @@ img {
 }
 
 /*========== REUSABLE CSS ==========*/
+.bg-div {
+    background-color: var(--bg-color);
+    position: absolute;
+    inset: 0;
+    width: 2000px;
+    margin: auto;
+    left: -60%;
+    top: -1rem;
+    z-index: -100;
+}
+
 section {
     padding: 2rem 0 4rem;
 }
@@ -145,30 +156,40 @@ section {
     position: relative;
     font-size: var(--h1-font-size);
     color: var(--article-title);
-    font-weight: var(--font-700);
+    font-weight: var(--font-500);
     text-transform: uppercase;
     margin-bottom: var(--mb-1-5);
+    border-bottom: 3px solid;
+    width: fit-content;
 }
 
 article {
     position: relative;
 }
 
+.mac {
+    /* .mac means main_wrapper article container */
+    position: relative;
+}
+
+.mac::before {
+    position: absolute;
+    content: '';
+    background: var(--text-color);
+    inset: 0;
+    height: 1px;
+    top: -1.7rem;
+}
+
 .article__title {
-    font-weight: var(--font-700);
+    font-weight: var(--font-600);
     font-size: var(--h2-font-size);
-    color: var(--first-color);
+    color: var(--title-color);
 }
 
 .article__subtitle {
-    font-weight: var(--font-600);
     font-size: var(--h3-font-size);
     color: var(--text-color);
-}
-
-.article__title,
-.article__subtitle {
-    text-transform: uppercase;
 }
 
 .article__date {
@@ -197,9 +218,17 @@ article {
     padding: var(--mb-1);
 }
 
+/* .main-wrapper {
+    box-shadow: 0 0px 33px -23px;
+    padding: 1rem;
+    margin-top: -4rem;
+    background: var(--body-color);
+    border-radius: .1rem;
+} */
+
 .container {
-    max-width: 968px;
-    /* max-width: 1024px; */
+    /* max-width: 968px; */
+    max-width: 1200px;
     width: calc(100% - 3rem);
     margin-left: var(--mb-1-5);
     margin-right: var(--mb-1-5);
@@ -253,17 +282,18 @@ article {
 
 .home__title {
     font-size: var(--big-font-size);
-    font-weight: var(--font-800);
+    font-weight: var(--font-700);
     line-height: 1.2;
     margin-top: var(--mb-1);
-    color: var(--first-color);
+    color: var(--white-color);
 }
 
 .home__subtitle {
-    font-weight: 600;
+    font-weight: var(--font-500);
     font-size: var(--h3-font-size);
     line-height: 1;
     margin-top: var(--mb-0-75);
+    color: var(--white-color);
 }
 
 .home__info-container {
@@ -285,10 +315,14 @@ article {
     column-gap: var(--mb-0-75);
 }
 
+.home__info .home__icon {
+    color: var(--white-color);
+}
+
 .home__info,
 .home__info a,
 .home__description {
-    color: var(--text-color);
+    color: var(--white-color);
 }
 
 .home__description {
@@ -299,33 +333,6 @@ article {
 .home__subtitle,
 .home__description {
     text-align: center;
-}
-
-.basics {
-    position: relative;
-}
-
-.circle,
-.outer-circle {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-
-.circle {
-    background-color: var(--yellow-color);
-    top: 23rem;
-    right: calc(-2rem + 20%);
-}
-
-.outer-circle {
-    width: 40px;
-    height: 40px;
-    background-color: transparent;
-    border: 3px solid var(--title-color);
-    top: 19rem;
-    left: calc(-1rem + 20%);
 }
 
 /*========== PROFILES ==========*/
@@ -436,115 +443,41 @@ article {
     }
 }
 
-@media print, screen and (min-width: 1024px) {
-    .container {
-        margin-left: auto;
-        margin-right: auto;
+@media print, screen and (max-width: 568px) {
+    .bg-div {
+        bottom: calc(10rem - (-2.5rem));
+    }
+}
+
+@media print, screen and (min-width: 568px) {
+    .main-wrapper {
+        box-shadow: 0 0px 33px -23px;
+        padding: 1rem;
+        margin-top: -4rem;
+        background: var(--body-color);
+        border-radius: .1rem;
     }
 
-    .main {
+    .basics {
+        position: relative;
+        max-width: 968px;
         margin: auto;
+        padding-bottom: 6rem;
     }
 
+    .article-header__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+@media print, screen and (min-width: 768px) {
     .basics {
         display: -ms-grid;
         display: grid;
         -ms-grid-columns: repeat(2, 1fr);
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .circle {
-        top: 3rem;
-        right: 5rem;
-    }
-
-    .outer-circle {
-        top: 3.5rem;
-        right: 5.5rem !important;
-        left: initial;
-    }
-
-    .box,
-    .line {
-        width: 250px;
-    }
-
-    .box {
-        position: absolute;
-        top: 1rem;
-        right: -16rem;
-        height: 50px;
-        background-color: var(--yellow-color);
-    }
-
-    .line {
-        position: absolute;
-        top: 3rem;
-        right: -17rem;
-        height: 2px;
-        background-color: var(--title-color);
-        opacity: .5;
-    }
-
-    .box-v,
-    .line-v {
-        height: 250px;
-    }
-
-    .box-v {
-        position: absolute;
-        background-color: var(--yellow-color);
-        bottom: 5rem;
-        left: -8rem;
-        width: 50px;
-    }
-
-    .line-v {
-        position: absolute;
-        bottom: 3rem;
-        left: -6rem;
-        width: 2px;
-        background-color: var(--title-color);
-        opacity: .5;
-    }
-
-    .main-wrapper .section {
-        position: relative;
-        display: -ms-grid;
-        display: grid;
-        -ms-grid-columns: .6fr var(--mb-2) 1fr;
-        grid-template-columns: .6fr 1fr;
-        -webkit-column-gap: var(--mb-2);
-        -moz-column-gap: var(--mb-2);
-        column-gap: var(--mb-2);
-    }
-
-    .main-wrapper .article-container {
-        margin-top: 5rem;
-    }
-
-    .main-wrapper .article__subtitle,
-    .main-wrapper .article__date {
-        position: absolute;
-        left: -23rem;
-    }
-
-    .main-wrapper .article__subtitle {
-        top: 4px;
-        max-width: 340px;
-    }
-
-    .certifications article:first-child {
-        margin-bottom: 5rem;
-    }
-
-    .main-wrapper .certifications .article__date {
-        top: 6rem !important;
-    }
-
-    .profile__img {
-        width: 400px;
-        margin-left: initial;
     }
 
     .home__title,
@@ -557,6 +490,30 @@ article {
         -webkit-box-pack: start;
         -ms-flex-pack: start;
         justify-content: flex-start;
+    }
+}
+
+@media print, screen and (min-width: 1200px) {
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .main {
+        margin: auto;
+    }
+
+    .main-wrapper {
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: 1fr .7fr;
+        grid-template-columns: 1fr .7fr;
+        column-gap: 5rem;
+    }
+
+    .profile__img {
+        width: 355px;
+        margin-left: initial;
     }
 
     .profiles .article-container {

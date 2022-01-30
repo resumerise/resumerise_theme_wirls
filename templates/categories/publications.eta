@@ -5,7 +5,7 @@
         <% } %>
     </div>
 
-	<div class="article-container grid">
+	<div class="article-container mac grid">
         <% it.resume?.publications.forEach(function(publication) { %>
             <article>
                 <%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.publication, id: publication.id, showDelete: true}) %>
@@ -15,16 +15,18 @@
                         value: publication.name,
                         classes: 'article__title'
                     }) %>
-                    <%~ include('key-value-item', {
-                        label: it.resume.settings?.labels?.categoryProperty?.publication?.publisher, 
-                        value: publication.publisher,
-                        classes: 'article__subtitle'
-                    }) %>
-                    <%~ include('key-value-item', {
-                        label: it.resume.settings?.labels?.categoryProperty?.publication?.releaseDate, 
-                        value: it.formatDate(publication.releaseDate, it.resume.settings),
-                        classes: 'article__date'
-                    }) %>
+                    <div class="article-header__wrapper">
+                        <%~ include('key-value-item', {
+                            label: it.resume.settings?.labels?.categoryProperty?.publication?.publisher, 
+                            value: publication.publisher,
+                            classes: 'article__subtitle'
+                        }) %>
+                        <%~ include('key-value-item', {
+                            label: it.resume.settings?.labels?.categoryProperty?.publication?.releaseDate, 
+                            value: it.formatDate(publication.releaseDate, it.resume.settings),
+                            classes: 'article__date'
+                        }) %>
+                    </div>
                     <%~ include('key-url-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.publication?.website, 
                         value: publication.website,

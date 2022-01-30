@@ -5,7 +5,7 @@
 		<% } %>
 	</div>
 	
-	<div class="article-container grid">
+	<div class="article-container mac grid">
 		<% it.resume?.projects.forEach(function(project) { %>
 			<article>
 				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.project, showDelete: true, id: project.id}) %>
@@ -15,19 +15,21 @@
 						value: project.title,
 						classes: 'article__title'
 					}) %>
-					<%~ include('key-value-item', {
-						label: it.resume.settings?.labels?.categoryProperty?.project?.client, 
-						value: project.client,
-						classes: 'article__subtitle'
-					}) %>
-					<%~ include('date-range', {
-						formatDate: it.formatDate,
-						startDate: project.startDate,
-						endDate: project.endDate,
-						present: project.present,
-						settings: it.resume.settings,
-						classes: 'article__date'
-					}) %>
+					<div class="article-header__wrapper">
+						<%~ include('key-value-item', {
+							label: it.resume.settings?.labels?.categoryProperty?.project?.client, 
+							value: project.client,
+							classes: 'article__subtitle'
+						}) %>
+						<%~ include('date-range', {
+							formatDate: it.formatDate,
+							startDate: project.startDate,
+							endDate: project.endDate,
+							present: project.present,
+							settings: it.resume.settings,
+							classes: 'article__date'
+						}) %>
+					</div>
 					<%~ include('key-url-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.project?.website, 
 						value: project.website,
