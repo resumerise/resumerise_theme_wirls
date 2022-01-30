@@ -1,9 +1,9 @@
-<section id="volunteer" class="volunteer">
-	<% if(it.resume.settings?.labels?.categoryProperty?.volunteer?.categoryTitle) { %>
-		<header class="section__title">
-			<%= it.resume.settings.labels.categoryProperty.volunteer.categoryTitle %>
-		</header>
-	<% } %>
+<section class="volunteer section" id="volunteer">
+	<div>
+		<% if(it.resume.settings?.labels?.categoryProperty?.volunteer?.categoryTitle) { %>
+			<header class="section__title"><%= it.resume.settings.labels.categoryProperty.volunteer.categoryTitle %></header>
+		<% } %>
+	</div>
 	<div class="article-container grid">
 		<% it.resume?.volunteer.forEach(function(volunteer) { %>
 			<article>
@@ -33,11 +33,12 @@
 						classes: 'article__url'
 					}) %>
 				</div>
-				<div class="article-content s-grid">
+				
+				<div class="article-content">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.volunteer?.summary, 
 						value: volunteer.summary,
-						classes: 'article__text'
+						classes: 'article__description'
 					}) %>
 					<%~ include('list', {
 						label: it.resume.settings?.labels?.categoryProperty?.volunteer?.highlights, 

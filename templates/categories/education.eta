@@ -1,9 +1,10 @@
-<section id="education" class="certifications">
-	<% if(it.resume.settings?.labels?.categoryProperty?.education?.categoryTitle) { %>
-		<header class="section__title">
-			<%= it.resume.settings.labels.categoryProperty.education.categoryTitle %>
-		</header>
-	<% } %>
+<section class="education section" id="education">
+	<div>
+		<% if(it.resume.settings?.labels?.categoryProperty?.education?.categoryTitle) { %>
+			<header class="section__title"><%= it.resume.settings.labels.categoryProperty.education.categoryTitle %></header>
+		<% } %>
+	</div>
+    
 	<div class="article-container grid">
 		<% it.resume?.education.forEach(function(education) { %>
 			<article>
@@ -28,7 +29,8 @@
 						classes: 'article__date'
 					}) %>
 				</div>
-				<div class="article-content s-grid">
+				
+				<div class="article-content">
 					<%~ include('key-value-item', {
 						label: it.resume.settings?.labels?.categoryProperty?.education?.studyType, 
 						value: education.studyType,

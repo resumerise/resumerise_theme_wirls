@@ -1,7 +1,9 @@
-<section id="work" class="work">
-    <% if (it.resume.settings?.labels?.categoryProperty?.work?.categoryTitle) { %>
-        <header class="section__title"><%= it.resume.settings?.labels?.categoryProperty?.work?.categoryTitle %></header>
-    <% } %>
+<section class="work section" id="work">
+	<div>
+        <% if (it.resume.settings?.labels?.categoryProperty?.work?.categoryTitle) { %>
+            <header class="section__title"><%= it.resume.settings?.labels?.categoryProperty?.work?.categoryTitle %></header>
+        <% } %>
+	</div>
     <div class="article-container grid">
         <% it.resume?.work.forEach(function(work) { %>
             <article>
@@ -17,11 +19,6 @@
                         value: work.position,
                         classes: 'article__subtitle'
                     }) %>
-                    <%~ include('key-url-item', {
-                        label: it.resume.settings?.labels?.categoryProperty?.work?.website, 
-                        value: work.website,
-                        classes: 'article__url'
-                    }) %>
                     <%~ include('date-range', {
                         formatDate: it.formatDate,
                         startDate: work.startDate,
@@ -30,12 +27,18 @@
                         settings: it.resume.settings,
                         classes: 'article__date'
                     }) %>
+                    <%~ include('key-url-item', {
+                        label: it.resume.settings?.labels?.categoryProperty?.work?.website, 
+                        value: work.website,
+                        classes: 'article__url'
+                    }) %>
                 </div>
-                <div class="article-content s-grid">
+                
+                <div class="article-content">
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.work?.summary, 
                         value: work.summary,
-                        classes: 'article__text'
+                        classes: 'article__description'
                     }) %>
                     <%~ include('list', {
                         label: it.resume.settings?.labels?.categoryProperty?.work?.highlights, 

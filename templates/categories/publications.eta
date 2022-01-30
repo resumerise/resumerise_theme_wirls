@@ -1,10 +1,11 @@
-<section id="publications" class="publications">
-	<% if(it.resume.settings?.labels?.categoryProperty?.publication?.categoryTitle) { %>
-		<header class="section__title">
-		    <%= it.resume.settings.labels.categoryProperty.publication.categoryTitle %>
-		</header>
-	<% } %>
-    <div class="article-container grid">
+<section class="publications section" id="publications">
+    <div>
+        <% if(it.resume.settings?.labels?.categoryProperty?.publication?.categoryTitle) { %>
+            <header class="section__title"><%= it.resume.settings.labels.categoryProperty.publication.categoryTitle %></header>
+        <% } %>
+    </div>
+
+	<div class="article-container grid">
         <% it.resume?.publications.forEach(function(publication) { %>
             <article>
                 <%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.publication, id: publication.id, showDelete: true}) %>
@@ -30,11 +31,12 @@
                         classes: 'article__url'
                     }) %>
                 </div>
-                <div class="article-content s-grid">
+
+                <div class="article-content">
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.publication?.summary, 
                         value: publication.summary,
-                        classes: 'article__text'
+                        classes: 'article__description'
                     }) %>
                 </div>
             </article>

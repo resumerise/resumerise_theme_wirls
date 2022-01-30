@@ -1,7 +1,10 @@
-<section id='location' class="certifications">
-    <% if (it.resume.settings?.labels?.categoryProperty?.location?.categoryTitle) { %>
-        <header class="section__title"><%= it.resume.settings?.labels?.categoryProperty?.location?.categoryTitle %></header>
-    <% } %>
+<section class="certifications" id='location'>
+    <div>
+        <% if (it.resume.settings?.labels?.categoryProperty?.location?.categoryTitle) { %>
+            <header class="section__title"><%= it.resume.settings?.labels?.categoryProperty?.location?.categoryTitle %></header>
+        <% } %>
+    <div>
+    
     <article>
         <%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.location}) %>
         <%~ include('key-value-item', {

@@ -1,7 +1,10 @@
-<section id="certifications" class="certifications">
-	<% if (it.resume.settings?.labels?.categoryProperty?.certificate?.categoryTitle) { %>
-		<header class="section__title"><%= it.resume.settings?.labels?.categoryProperty?.certificate?.categoryTitle %></header>
-	<% } %>
+<section class="certifications section" id="certifications">
+	<div>
+    	<% if (it.resume.settings?.labels?.categoryProperty?.certificate?.categoryTitle) { %>
+			<header class="section__title"><%= it.resume.settings?.labels?.categoryProperty?.certificate?.categoryTitle %></header>
+		<% } %>
+	</div>
+    
 	<div class="article-container grid">
 		<% it.resume?.certifications.forEach(function(certificate) { %>
 			<article>

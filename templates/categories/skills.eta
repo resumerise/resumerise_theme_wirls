@@ -1,10 +1,11 @@
-<section id="skills" class="skills">
-	<% if(it.resume.settings?.labels?.categoryProperty?.skill?.categoryTitle) { %>
-		<header class="section__title">
-			<%= it.resume.settings.labels.categoryProperty.skill.categoryTitle %>
-		</header>
-	<% } %>
-	<div class="article-container grid">
+<section class="skills section" id="skills">
+	<div>
+		<% if(it.resume.settings?.labels?.categoryProperty?.skill?.categoryTitle) { %>
+			<header class="section__title"><%= it.resume.settings.labels.categoryProperty.skill.categoryTitle %></header>
+		<% } %>
+	</div>
+
+	<div class="article-container">
 		<% it.resume?.skills.forEach(function(skill) { %>
 			<article>
 				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.skill}) %>
@@ -20,7 +21,8 @@
 						classes: 'article__subtitle'
 					}) %>
 				</div>
-				<div class="article-content s-grid">
+				
+				<div class="article-content">
 					<%~ include('list', {
 						label: it.resume.settings?.labels?.categoryProperty?.skill?.keywords, 
 						data: skill.keywords,

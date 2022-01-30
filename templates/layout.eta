@@ -11,84 +11,104 @@
 		</style>
 	</head>
 	<body>
-		<main>
+		<main class="main container">
 			<!-- BASICS -->
 			<%~ include("basic", {
 				resume: it.resume,
 				formatDate: it.formatDate
 			}) %>
 			
-			<!-- PROJECT -->
-			<%~ include("project", {
-				resume: it.resume,
-				formatDate: it.formatDate
-			}) %>
+			<div class="main-wrapper">
+				<div class="left">
+					<!-- PROJECT -->
+					<%~ include("project", {
+						resume: it.resume,
+						formatDate: it.formatDate
+					}) %>
 
-			<!-- WORK -->
-			<%~ include("work", {
-				resume: it.resume,
-				formatDate: it.formatDate
-			}) %>
+					<!-- EDUCATION -->
+					<%~ include("education", {
+						resume: it.resume,
+						formatDate: it.formatDate
+					}) %>
 
-			<!-- EDUCATION -->
-			<%~ include("education", {
-				resume: it.resume,
-				formatDate: it.formatDate
-			}) %>
-			
-			<!-- PUBLICATION -->
-			<%~ include("publication", {
-				resume: it.resume,
-				formatDate: it.formatDate
-			}) %>
-			
-			<!-- REFERENCE -->
-			<%~ include("reference", {
-				resume: it.resume,
-				formatDate: it.formatDate
-			}) %>
-			
-			<!-- VOLUNTEER -->
-			<%~ include("volunteer", {
-				resume: it.resume,
-				formatDate: it.formatDate
-			}) %>
-			
-			<!-- CERTIFICATION -->
-			<%~ include("certification", {
-				resume: it.resume,
-				formatDate: it.formatDate
-			}) %>
+					<!-- WORK -->	
+					<%~ include("work", {
+						resume: it.resume,
+						formatDate: it.formatDate
+					}) %>
 
-			<!-- SKILLS -->
-			<%~ include("skills", {
-				resume: it.resume,
-				formatDate: it.formatDate
-			}) %>
-			
-			<!-- AWARDS -->
-			<%~ include("awards", {
-				resume: it.resume,
-				formatDate: it.formatDate
-			}) %>
-			
-			<!-- INTEREST -->
-			<%~ include("interest", {
-				resume: it.resume,
-				formatDate: it.formatDate
-			}) %>
+					<!-- PROFILE -->
+					<%~ include("profile", {
+						resume: it.resume,
+						formatDate: it.formatDate
+					}) %>
 
-			<!-- LANGUAGE -->
-			<%~ include("language", {
-				resume: it.resume,
-				formatDate: it.formatDate
-			}) %>
+					<!-- LANGUAGE -->
+					<%~ include("language", {
+						resume: it.resume,
+						formatDate: it.formatDate
+					}) %>
+				</div>
 
-			<!-- PROFILE -->
-			<%~ include("profile", {
-				resume: it.resume,
-				formatDate: it.formatDate
-			}) %>
+				<div class="right">
+					<!-- PUBLICATION -->
+					<%~ include("publication", {
+						resume: it.resume,
+						formatDate: it.formatDate
+					}) %>
+
+					<!-- CERTIFICATION -->
+					<%~ include("certification", {
+						resume: it.resume,
+						formatDate: it.formatDate
+					}) %>
+					
+					<!-- SKILLS -->
+					<%~ include("skills", {
+						resume: it.resume,
+						formatDate: it.formatDate
+					}) %>
+					
+					<!-- VOLUNTEER -->
+					<%~ include("volunteer", {
+						resume: it.resume,
+						formatDate: it.formatDate
+					}) %>
+					
+					<!-- INTEREST -->
+					<%~ include("interest", {
+						resume: it.resume,
+						formatDate: it.formatDate
+					}) %>
+
+					<!-- AWARDS -->
+					<%~ include("awards", {
+						resume: it.resume,
+						formatDate: it.formatDate
+					}) %>
+
+					<!-- REFERENCE -->
+					<%~ include("reference", {
+						resume: it.resume,
+						formatDate: it.formatDate
+					}) %>
+				</div>
+			</div>
 		</main>
+		
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<script src="https://unpkg.com/scrollreveal"></script>
+		<script>
+		AOS.init();
+		const sr = ScrollReveal({
+			distance: '30px',
+			duration: 1800,
+			reset: true,
+		});
+		sr.reveal(`.box, .line`, {
+			origin: 'right'
+		})
+		</script>
 	</body>
 </html>

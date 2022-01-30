@@ -1,10 +1,11 @@
-<section id="profiles" class="profiles">
-    <% if(it.resume.settings?.labels?.categoryProperty?.profile?.categoryTitle) { %>
-        <header class="section__title">
-            <%= it.resume.settings.labels.categoryProperty.profile.categoryTitle %>
-        </header>
-    <% } %>
-    <div class="article-container grid">
+<section class="profiles section" id="profiles">
+    <div>
+        <% if(it.resume.settings?.labels?.categoryProperty?.profile?.categoryTitle) { %>
+            <header class="section__title"><%= it.resume.settings.labels.categoryProperty.profile.categoryTitle %></header>
+        <% } %>
+    </div>
+
+    <div class="article-container profile__container">
         <% it.resume.basics.profiles?.forEach(function(profile){ %>
             <article>
                 <%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.profile, showDelete: true, id: profile.id}) %>
