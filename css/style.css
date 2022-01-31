@@ -6,15 +6,35 @@
     --header-height: 3rem;
 
     /*========== COLORS ==========*/
-    --first-color: hsl(160, 100%, 57%);
-    --first-color-second: hsl(160, 69%, 61%);
-    --first-color-alt: hsl(160, 57%, 53%);
-    --first-color-lighter: hsl(160, 69%, 61%);
-    --first-color-lighter-dark: hsl(160, 69%, 31%);
+    /*
+    Primary color 
+    */
+    --primary-color: hsl(160, 100%, 57%);
+    /*
+    Primary color 
+    */
+    --scrollbar-color: hsl(160, 69%, 61%);
+    --primary-color-lighter: hsl(160, 69%, 61%);
+    --primary-color-lighter-dark: hsl(160, 69%, 31%);
+    /*
+    Color of the title
+    */
     --title-color: #00020B;
+    /*
+    Text color
+    */
     --text-color: #5C5859;
+    /*
+    Text light color
+    */
     --text-color-light: #A29697;
+    /*
+    Background color
+    */
     --bg-color: #10B57D;
+    /*
+    Body color 
+    */
     --body-color: #fefcfb;
     --white-color: white;
     --black-color: black;
@@ -90,12 +110,12 @@ body {
 }
 
 ::-moz-selection {
-    background: var(--first-color-lighter-dark);
+    background: var(--primary-color-lighter-dark);
     color: white;
 }
 
 ::selection {
-    background: var(--first-color-lighter-dark);
+    background: var(--primary-color-lighter-dark);
     color: white;
 }
 
@@ -124,7 +144,7 @@ li {
 }
 
 li::marker {
-    color: var(--first-color-lighter-dark);
+    color: var(--primary-color-lighter-dark);
 }
 
 a {
@@ -255,7 +275,7 @@ article {
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
-    color: var(--first-color-lighter-dark);
+    color: var(--primary-color-lighter-dark);
     gap: var(--mb-1);
 }
 
@@ -429,7 +449,7 @@ article {
 
 /* SCROLLBAR THUMB */
 ::-webkit-scrollbar-thumb {
-    background: var(--first-color-second);
+    background: var(--scrollbar-color);
     background-repeat: no-repeat;
     border-radius: 10px;
 }
@@ -486,7 +506,7 @@ article {
         right: -85px;
         top: 0;
         border-top: 64px solid transparent;
-        border-left: 85px solid var(--first-color-lighter-dark);
+        border-left: 85px solid var(--primary-color-lighter-dark);
         border-bottom: -11px solid transparent;
         height: min-content;
         width: min-content;
