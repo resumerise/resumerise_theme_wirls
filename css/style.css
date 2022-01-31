@@ -10,7 +10,7 @@
     --first-color-second: hsl(160, 69%, 61%);
     --first-color-alt: hsl(160, 57%, 53%);
     --first-color-lighter: hsl(160, 69%, 61%);
-    --first-color-lighter-dark: #292523;
+    --first-color-lighter-dark: hsl(160, 69%, 31%);
     --title-color: #00020B;
     --text-color: #5C5859;
     --text-color-light: #A29697;
@@ -90,12 +90,12 @@ body {
 }
 
 ::-moz-selection {
-    background: hsl(160, 100%, 47%);
+    background: var(--first-color-lighter-dark);
     color: white;
 }
 
 ::selection {
-    background: hsl(160, 100%, 47%);
+    background: var(--first-color-lighter-dark);
     color: white;
 }
 
@@ -124,7 +124,7 @@ li {
 }
 
 li::marker {
-    color: hsl(160, 100%, 70%);
+    color: var(--first-color-lighter-dark);
 }
 
 a {
@@ -364,11 +364,6 @@ article {
     height: 50px;
 }
 
-.work svg {
-    width: 50px;
-    margin-top: -7.8rem;
-}
-
 .project svg:nth-child(1) {
     width: 50px;
     margin-top: -4.8rem;
@@ -376,7 +371,11 @@ article {
 
 .project svg:nth-child(2) {
     width: 110px;
-    margin-top: -1.8rem;
+}
+
+.work svg {
+    width: 50px;
+    margin-top: -7.8rem;
 }
 
 /*========== ICONS ==========*/
@@ -472,11 +471,25 @@ article {
 
 @media print, screen and (min-width: 568px) {
     .main-wrapper {
+        position: relative;
         box-shadow: 0 0px 33px -23px;
         padding: 1rem;
         margin-top: -4rem;
         background: var(--body-color);
         border-radius: .1rem;
+    }
+
+    .main-wrapper::before {
+        position: absolute;
+        content: '';
+        background-color: transparent;
+        right: -85px;
+        top: 0;
+        border-top: 64px solid transparent;
+        border-left: 85px solid var(--first-color-lighter-dark);
+        border-bottom: -11px solid transparent;
+        height: min-content;
+        width: min-content;
     }
 
     .basics {
@@ -556,5 +569,11 @@ article {
         grid-template-columns: repeat(12, 1fr);
         gap: 2rem;
         justify-items: flex-start;
+    }
+}
+
+@media print {
+    .bg-div {
+        bottom: 0 !important;
     }
 }
