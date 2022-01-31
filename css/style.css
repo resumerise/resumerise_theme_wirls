@@ -228,7 +228,7 @@ article {
 
 .container {
     /* max-width: 968px; */
-    max-width: 1200px;
+    max-width: 1400px;
     width: calc(100% - 3rem);
     margin-left: var(--mb-1-5);
     margin-right: var(--mb-1-5);
@@ -358,6 +358,27 @@ article {
     margin-bottom: var(--mb-1);
 }
 
+/*========== PROJECT + WORK IMAGES ==========*/
+.article-logo {
+    width: 50px;
+    height: 50px;
+}
+
+.work svg {
+    width: 50px;
+    margin-top: -7.8rem;
+}
+
+.project svg:nth-child(1) {
+    width: 50px;
+    margin-top: -4.8rem;
+}
+
+.project svg:nth-child(2) {
+    width: 110px;
+    margin-top: -1.8rem;
+}
+
 /*========== ICONS ==========*/
 .icon {
     font-style: normal;
@@ -469,6 +490,17 @@ article {
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+
+    .project,
+    .work {
+        margin-left: 5rem;
+    }
+
+    .article-logo {
+        position: absolute;
+        left: -5.3rem;
+        top: -0.2rem;
     }
 }
 
