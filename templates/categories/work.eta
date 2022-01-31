@@ -8,6 +8,11 @@
         <% it.resume?.work.forEach(function(work) { %>
             <article>
                 <%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.work, showDelete: true, id: work.id}) %>
+                <% if (work.logo) { %>
+                    <div class="article-logo">
+                        <%~ work.logo %>
+                    </div>
+                <% } %>
                 <div class="article-header">
                     <%~ include('key-value-item', {
                         label: it.resume.settings?.labels?.categoryProperty?.work?.company, 
