@@ -608,18 +608,25 @@ article {
 }
 
 @media print {
+    body {
+        -webkit-print-color-adjust: exact;
+        -moz-print-color-adjust: exact;
+        -ms-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
     .bg-div {
         bottom: 0 !important;
     }
 
-    /* .container {
+    .container {
         margin-left: auto;
         margin-right: auto;
     }
 
     .main {
         margin: auto;
-    } */
+    }
 
     .basics {
         position: relative;
