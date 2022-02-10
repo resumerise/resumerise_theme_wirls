@@ -8,51 +8,58 @@
         <% it.resume?.work.forEach(function(work) { %>
             <article>
                 <%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.work, showDelete: true, id: work.id}) %>
-                <% if (work.logo) { %>
-                    <div class="article-logo">
-                        <%~ work.logo %>
+                <div class="article-main-wrapper grid">
+					<div class="logo-wrapper">
+                        <% if (work.logo) { %>
+                            <div class="article-logo">
+                                <%~ work.logo %>
+                            </div>
+                        <% } %>
                     </div>
-                <% } %>
-                <div class="article-header">
-                    <%~ include('key-value-item', {
-                        label: it.resume.settings?.labels?.categoryProperty?.work?.company, 
-                        value: work.company,
-                        classes: 'article__title'
-                    }) %>
-                    <div class="article-header__wrapper">
-                        <%~ include('key-value-item', {
-                            label: it.resume.settings?.labels?.categoryProperty?.work?.position, 
-                            value: work.position,
-                            classes: 'article__subtitle'
-                        }) %>
-                        <%~ include('date-range', {
-                            formatDate: it.formatDate,
-                            startDate: work.startDate,
-                            endDate: work.endDate,
-                            present: work.present,
-                            settings: it.resume.settings,
-                            classes: 'article__date'
-                        }) %>
+
+                    <div class="article-wrapper">
+                        <div class="article-header">
+                            <%~ include('key-value-item', {
+                                label: it.resume.settings?.labels?.categoryProperty?.work?.company, 
+                                value: work.company,
+                                classes: 'article__title'
+                            }) %>
+                            <div class="article-header__wrapper">
+                                <%~ include('key-value-item', {
+                                    label: it.resume.settings?.labels?.categoryProperty?.work?.position, 
+                                    value: work.position,
+                                    classes: 'article__subtitle'
+                                }) %>
+                                <%~ include('date-range', {
+                                    formatDate: it.formatDate,
+                                    startDate: work.startDate,
+                                    endDate: work.endDate,
+                                    present: work.present,
+                                    settings: it.resume.settings,
+                                    classes: 'article__date'
+                                }) %>
+                            </div>
+                            <%~ include('key-url-item', {
+                                label: it.resume.settings?.labels?.categoryProperty?.work?.website, 
+                                value: work.website,
+                                classes: 'article__url'
+                            }) %>
+                        </div>
+                        
+                        <div class="article-content">
+                            <%~ include('key-value-item', {
+                                label: it.resume.settings?.labels?.categoryProperty?.work?.summary, 
+                                value: work.summary,
+                                classes: 'article__description'
+                            }) %>
+                            <%~ include('list', {
+                                label: it.resume.settings?.labels?.categoryProperty?.work?.highlights, 
+                                data: work.highlights,
+                                showLabel: true,
+                                classes: 'article__list'
+                            }) %>
+                        </div>
                     </div>
-                    <%~ include('key-url-item', {
-                        label: it.resume.settings?.labels?.categoryProperty?.work?.website, 
-                        value: work.website,
-                        classes: 'article__url'
-                    }) %>
-                </div>
-                
-                <div class="article-content">
-                    <%~ include('key-value-item', {
-                        label: it.resume.settings?.labels?.categoryProperty?.work?.summary, 
-                        value: work.summary,
-                        classes: 'article__description'
-                    }) %>
-                    <%~ include('list', {
-                        label: it.resume.settings?.labels?.categoryProperty?.work?.highlights, 
-                        data: work.highlights,
-                        showLabel: true,
-                        classes: 'article__list'
-                    }) %>
                 </div>
             </article>
         <% }) %>

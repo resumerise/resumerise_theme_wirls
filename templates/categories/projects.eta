@@ -9,63 +9,70 @@
 		<% it.resume?.projects.forEach(function(project) { %>
 			<article>
 				<%~ include('nav', {categoryKey: it.resume?.settings?.categoryKeys?.project, showDelete: true, id: project.id}) %>
-				<% if (project.logo) { %>
-                    <div class="article-logo">
-                        <%~ project.logo %>
-                    </div>
-                <% } %>
-				<div class="article-header">
-					<%~ include('key-value-item', {
-						label: it.resume.settings?.labels?.categoryProperty?.project?.title, 
-						value: project.title,
-						classes: 'article__title'
-					}) %>
-					<div class="article-header__wrapper">
-						<%~ include('key-value-item', {
-							label: it.resume.settings?.labels?.categoryProperty?.project?.client, 
-							value: project.client,
-							classes: 'article__subtitle'
-						}) %>
-						<%~ include('date-range', {
-							formatDate: it.formatDate,
-							startDate: project.startDate,
-							endDate: project.endDate,
-							present: project.present,
-							settings: it.resume.settings,
-							classes: 'article__date'
-						}) %>
+				<div class="article-main-wrapper grid">
+					<div class="logo-wrapper">
+						<% if (project.logo) { %>
+							<div class="article-logo">
+								<%~ project.logo %>
+							</div>
+						<% } %>
 					</div>
-					<%~ include('key-url-item', {
-						label: it.resume.settings?.labels?.categoryProperty?.project?.website, 
-						value: project.website,
-						classes: 'article__url'
-					}) %>
-				</div>
-				
-				<div class="article-content">
-					<%~ include('key-value-item', {
-						label: it.resume.settings?.labels?.categoryProperty?.project?.summary, 
-						value: project.summary,
-						classes: 'article__description'
-					}) %>
-					<%~ include('list', {
-						label: it.resume.settings?.labels?.categoryProperty?.project?.products, 
-						data: project.products,
-						showLabel: true,
-						classes: 'article__list'
-					}) %>
-					<%~ include('list', {
-						label: it.resume.settings?.labels?.categoryProperty?.project?.roles, 
-						data: project.roles,
-						showLabel: true,
-						classes: 'article__list'
-					}) %>
-					<%~ include('list', {
-						label: it.resume.settings?.labels?.categoryProperty?.project?.highlights, 
-						data: project.highlights,
-						showLabel: true,
-						classes: 'article__list'
-					}) %>
+
+					<div class="article-wrapper">
+						<div class="article-header">
+							<%~ include('key-value-item', {
+								label: it.resume.settings?.labels?.categoryProperty?.project?.title, 
+								value: project.title,
+								classes: 'article__title'
+							}) %>
+							<div class="article-header__wrapper">
+								<%~ include('key-value-item', {
+									label: it.resume.settings?.labels?.categoryProperty?.project?.client, 
+									value: project.client,
+									classes: 'article__subtitle'
+								}) %>
+								<%~ include('date-range', {
+									formatDate: it.formatDate,
+									startDate: project.startDate,
+									endDate: project.endDate,
+									present: project.present,
+									settings: it.resume.settings,
+									classes: 'article__date'
+								}) %>
+							</div>
+							<%~ include('key-url-item', {
+								label: it.resume.settings?.labels?.categoryProperty?.project?.website, 
+								value: project.website,
+								classes: 'article__url'
+							}) %>
+						</div>
+						
+						<div class="article-content">
+							<%~ include('key-value-item', {
+								label: it.resume.settings?.labels?.categoryProperty?.project?.summary, 
+								value: project.summary,
+								classes: 'article__description'
+							}) %>
+							<%~ include('list', {
+								label: it.resume.settings?.labels?.categoryProperty?.project?.products, 
+								data: project.products,
+								showLabel: true,
+								classes: 'article__list'
+							}) %>
+							<%~ include('list', {
+								label: it.resume.settings?.labels?.categoryProperty?.project?.roles, 
+								data: project.roles,
+								showLabel: true,
+								classes: 'article__list'
+							}) %>
+							<%~ include('list', {
+								label: it.resume.settings?.labels?.categoryProperty?.project?.highlights, 
+								data: project.highlights,
+								showLabel: true,
+								classes: 'article__list'
+							}) %>
+						</div>
+					</div>
 				</div>
 			</article>
 		<% }) %>
